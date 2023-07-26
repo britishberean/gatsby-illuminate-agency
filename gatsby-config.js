@@ -3,10 +3,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Illuminate Agency`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Illuminate Agency`,
+    siteUrl: `https://www.illuminate.agency`
   },
-  plugins: ["gatsby-plugin-google-gtag", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+  plugins: ["gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
