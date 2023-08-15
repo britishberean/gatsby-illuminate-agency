@@ -1,17 +1,25 @@
 import React from 'react';
-import { Grid, Typography, Box } from '@mui/material';
-import logoOne from '../../images/logos/logoipsum-212.svg';
-import logoTwo from '../../images/logos/logoipsum-214.svg';
-import logoThree from '../../images/logos/logoipsum-215.svg';
-import logoFour from '../../images/logos/logoipsum-216.svg';
-import logoFive from '../../images/logos/logoipsum-217.svg';
-import logoSix from '../../images/logos/logoipsum-218.svg';
-import logoSeven from '../../images/logos/logoipsum-219.svg';
-import logoEight from '../../images/logos/logoipsum-221.svg';
+import { Grid, Typography } from '@mui/material';
+import { useStaticQuery, graphql } from 'gatsby';
 import ToolbarNegativeSpacer from '../ToolbarNegativeSpacer';
 
 const ClientsSection = () => {
-  const logos = [logoOne, logoTwo, logoThree, logoFour, logoFive, logoSix, logoSeven, logoEight];
+  const data = useStaticQuery(graphql`
+    {
+      allFile(filter: {
+        extension: { eq: "png" }
+        relativeDirectory: {eq: "client-logos" }
+      }) {
+        edges {
+          node {
+            publicURL
+            name
+          }
+        }
+      }
+    }
+  `);
+  const logos = data?.allFile?.edges || [];
   return (
     <Grid item>
       <Grid item xs={12}>
@@ -21,9 +29,9 @@ const ClientsSection = () => {
         <Typography variant="h4" sx={{ textAlign: 'center', p: 4 }}>Our Clients</Typography>
       </Grid>
       <Grid item container>
-        {logos.map((logo) => (
-          <Grid key={logo} item xs={12} sm={4} md={3} xl={2} sx={{ textAlign: 'center', p: 2 }}>
-            <img src={logo} alt="Client Logo" placeholder="none" />
+        {logos.map(({ node: { name, publicURL } }) => (
+          <Grid key={name} item xs={12} sm={4} md={3} xl={2} sx={{ height: '100px', textAlign: 'center', p: 2 }}>
+              <img src={publicURL} alt={name} placeholder="none" style={{ maxHeight: '100%', maxWidth: '100%' }} />
           </Grid>
         ))}
       </Grid>
