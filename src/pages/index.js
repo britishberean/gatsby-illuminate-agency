@@ -13,7 +13,7 @@ const IndexPage = ({ location }) => {
     <Layout location={location}>
       <Grid container>
         {sections.map((Section, index) => (
-          <Grid item xs={12}>
+          <Grid item xs={12} key={index}>
             <Box sx={{ backgroundColor: index % 2 ? 'background.default' : 'background.dark'}}>
               <Section key={index} />
             </Box>

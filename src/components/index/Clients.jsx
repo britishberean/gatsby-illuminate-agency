@@ -18,7 +18,7 @@ const ClientsSection = () => {
       </Grid>
       <Grid item container>
         {logos.map((logo) => (
-          <Grid item xs={12} sm={4} md={3} xl={2} sx={{ textAlign: 'center', p: 2 }}>
+          <Grid key={logo} item xs={12} sm={4} md={3} xl={2} sx={{ textAlign: 'center', p: 2 }}>
             <img src={logo} alt="Client Logo" placeholder="none" />
           </Grid>
         ))}
