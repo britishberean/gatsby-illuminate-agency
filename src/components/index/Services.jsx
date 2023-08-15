@@ -1,8 +1,12 @@
 import React from 'react';
 import { Grid, Paper, Typography } from '@mui/material';
+import ToolbarNegativeSpacer from '../ToolbarNegativeSpacer';
 
 const ServicesSection = () => (
-  <Grid item id="services">
+  <Grid item>
+    <Grid item xs={12}>
+      <ToolbarNegativeSpacer id="services" />
+    </Grid>
     {/* Expertise Boxes */}
     <Grid container>
       <Grid item xs={12}>
