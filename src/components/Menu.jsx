@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import MobileMenu from './Menu/MobileMenu';
 import DesktopMenu from './Menu/DesktopMenu';
+import IlluminateLogo from '../images/logo.png';
 
 function Menu({ path }) {
   const { breakpoints } = useTheme();
@@ -52,7 +53,13 @@ function Menu({ path }) {
             underline="none"
             onClick={() => navigate('/')}
           >
-            <Typography variant="h6" display="inline" pl={1}>Illuminate Agency</Typography>
+            <img
+              src={IlluminateLogo}
+              alt="Illuminate Agency Logo"
+              height={42}
+              style={{ verticalAlign: 'bottom' }}
+              placeholder="none"
+            />
           </Link>
           {!isMobile && <DesktopMenu path={path} />}
           {!isMobile && (
