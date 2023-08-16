@@ -4,11 +4,11 @@ import Layout from '../components/Layout';
 import Intro from '../components/index/Intro';
 import Services from '../components/index/Services';
 import CaseStudies from '../components/index/CaseStudies';
-import Clients from '../components/index/Clients';
+// import Clients from '../components/index/Clients';
 import Contact from '../components/index/Contact';
 
 const IndexPage = ({ location }) => {
-  const sections = [Intro, Services, CaseStudies, Clients, Contact];
+  const sections = [Intro, Services, CaseStudies, /* Clients,*/ Contact];
   return (
     <Layout location={location}>
       <Grid container>
