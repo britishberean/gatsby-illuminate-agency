@@ -19,18 +19,18 @@ const Footer = React.forwardRef((_, ref) => (
     <Grid container pb={1} spacing={4} ref={ref}>
       <Grid item xs={12} sm={6}>
         <Typography variant="h6" pb={1} sx={{ color: 'text.secondary' }}>About Illuminate Agency</Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>Illuminate Agency has expertise in integrated digital strategies, combining creativity and execution that find your audience.</Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>Illuminate Agency is a proud pioneer of industry defining lateral targeting in paid advertising. We specialise in crafting bespoke audiences and integrated digital strategy to enhance your paid and organic revenue streams. From hardline technical analysis and SEO optimisation to nuanced and niche keyword discovery and audience selection, we deliver unquestionable results.</Typography>
       </Grid>
       <Grid item xs={12} sm={6} textAlign="right">
         <Link
           component={IconButton}
           href="https://twitter.com/illuminateltd"
           sx={{
-            color: '#515867',
+            color: 'text.footerIcon',
             '&:hover': {
               color: 'common.white',
               '& .circleIcon': {
-                color: '#515867',
+                color: 'text.footerIcon',
               },
             },
           }}
@@ -46,11 +46,11 @@ const Footer = React.forwardRef((_, ref) => (
           component={IconButton}
           href="https://www.facebook.com/illuminateagency"
           sx={{
-            color: '#515867',
+            color: 'text.footerIcon',
             '&:hover': {
               color: 'common.white',
               '& .circleIcon': {
-                color: '#515867',
+                color: 'text.footerIcon',
               },
             },
           }}

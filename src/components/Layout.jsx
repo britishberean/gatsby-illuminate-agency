@@ -12,6 +12,26 @@ import Menu from './Menu';
 import Footer from './Footer';
 import '../styles/font.css';
 
+const palette = {
+  greyBlue: '#b4cbd5',
+  grey: '#d2dede',
+  blue: {
+    main: '#61b0d5',
+    dark: '#308bb5',
+    light: '#9acde4',
+  },
+  green: {
+    main: '#a6b65f',
+    dark: '#8e9e48',
+    light: '#ced7a7',
+  },
+  peach: {
+    main: '#eec9a3',
+    dark: '#db8d3d',
+    light: '#f3d9be',
+  },
+};
+
 const mainTheme = createTheme({
   palette: {
     primary: {
@@ -19,21 +39,28 @@ const mainTheme = createTheme({
       dark: '#c6c7c9',
     },
     secondary: {
-      main: '#6a3259',
-      dark: '#5D3250',
+      main: palette.green.main,
+      dark: palette.green.dark,
+    },
+    formInput: {
+      main: '#333',
+      dark: '#000',
+      light: '#555',
+      contrastText: '#fff',
     },
     background: {
-      default: '#fff',
-      paper: '#f6f4f5',
-      dark: '#f6f4f5',
-      footer: '#2a3030',
-      form: '#23506d',//
+      default: palette.grey,
+      paper: palette.greyBlue,
+      dark: palette.greyBlue,
+      footer: palette.blue.dark,
+      form: palette.blue.dark,
     },
     text: {
       primary: '#000',
-      secondary: '#fff',//
-      tertiary: '#afbfd0',//
-      quaternary: '#328CC1',//
+      secondary: '#fff',
+      tertiary: palette.greyBlue,
+      quaternary: palette.blue.main,
+      footerIcon: palette.green.main,
     },
   },
   typography: {

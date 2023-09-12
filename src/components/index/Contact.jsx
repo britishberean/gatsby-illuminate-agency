@@ -27,12 +27,12 @@ const ContactSection = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                InputLabelProps={{ sx: { color: (theme) => theme.palette.secondary.main } }}
+                InputLabelProps={{ sx: { color: (theme) => theme.palette.formInput.main } }}
+                color="formInput"
                 error={!!(formik.touched.email && formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
                 required
                 fullWidth
-                color="secondary"
                 name="email"
                 label="Email Address"
                 type="email"
@@ -42,12 +42,12 @@ const ContactSection = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                InputLabelProps={{ sx: { color: (theme) => theme.palette.secondary.main } }}
+                InputLabelProps={{ sx: { color: (theme) => theme.palette.formInput.main } }}
+                color="formInput"
                 error={!!(formik.touched.name && formik.errors.name)}
                 helperText={formik.touched.name && formik.errors.name}
                 required
                 fullWidth
-                color="secondary"
                 name="name"
                 label="Name"
                 type="text"
@@ -57,14 +57,14 @@ const ContactSection = () => {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                InputLabelProps={{ sx: { color: (theme) => theme.palette.secondary.main } }}
+                InputLabelProps={{ sx: { color: (theme) => theme.palette.formInput.main } }}
+                color="formInput"
                 error={!!(formik.touched.message && formik.errors.message)}
                 helperText={formik.touched.message && formik.errors.message}
                 rows={5}
                 required
                 fullWidth
                 multiline
-                color="secondary"
                 name="message"
                 label="Message"
                 type="text"
