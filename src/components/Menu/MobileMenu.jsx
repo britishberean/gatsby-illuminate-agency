@@ -5,11 +5,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { navigate } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 
-function MobileMenu() {
+function MobileMenu({ links }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const openDrawer = useCallback(() => setDrawerOpen(true), [setDrawerOpen]);
   const closeDrawer = useCallback(() => setDrawerOpen(false), [setDrawerOpen]);
@@ -49,30 +48,16 @@ function MobileMenu() {
               <FontAwesomeIcon icon={faClose} />
             </Button>
           </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => {
-              navigate('#services');
-              closeDrawer();
-            }}>
-              <Typography align='center' width='100%'>Services</Typography>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => {
-              navigate('#clients');
-              closeDrawer();
-            }}>
-              <Typography align='center' width='100%'>Clients</Typography>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => {
-              navigate('#contact');
-              closeDrawer();
-            }}>
-              <Typography align='center' width='100%'>Contact</Typography>
-            </ListItemButton>
-          </ListItem>
+          {links.map((link) => (
+            <ListItem key={link.text}>
+              <ListItemButton onClick={() => {
+                link.navigate(link.link);
+                closeDrawer();
+              }}>
+                <Typography align='center' width='100%'>{link.text}</Typography>
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </Drawer>
     </>

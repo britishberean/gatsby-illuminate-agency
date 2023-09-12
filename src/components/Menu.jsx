@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -33,6 +33,11 @@ function Menu({ path }) {
     height: (theme) => ({ xs: getToolbarHeight(theme) }),
     minHeight: (theme) => ({ xs: getToolbarHeight(theme) }),
   };
+  const links = useMemo(() => ([
+    { text: 'Services', link: '#services', navigate },
+    { text: 'Clients', link: '#clients', navigate },
+    { text: 'Contact', link: '#contact', navigate },
+  ]), []);
   return (
     <>
       <AppBar
@@ -44,7 +49,7 @@ function Menu({ path }) {
       >
         <Toolbar sx={toolbarStyle}>
           {/* If mobile, display drawer view else normal view */}
-          {isMobile && <MobileMenu />}
+          {isMobile && <MobileMenu links={links} />}
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <Link
             sx={{ color: 'text.primary', flex: 1 }}
@@ -60,7 +65,7 @@ function Menu({ path }) {
               placeholder="none"
             />
           </Link>
-          {!isMobile && <DesktopMenu path={path} />}
+          {!isMobile && <DesktopMenu path={path} links={links} />}
           {!isMobile && (
             <Box sx={{
               flexGrow: 0, ml: 8, display: 'flex', flexDirection: 'column', gap: (theme) => theme.spacing(1),

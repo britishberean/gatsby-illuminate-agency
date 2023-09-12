@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { navigate } from 'gatsby';
 
-function DesktopMenu({ path }) {
+function DesktopMenu({ path, links }) {
   const menuButtonStyle = {
     color: 'text.primary',
     '&:hover': { color: 'text.tertiary' },
@@ -23,27 +22,16 @@ function DesktopMenu({ path }) {
       },
     }}
     >
-      <Button
-        sx={menuButtonStyle}
-        variant={path.startsWith('/services') ? 'contained' : 'text'}
-        onClick={() => navigate('#services')}
-      >
-        Services
-      </Button>
-      <Button
-        sx={menuButtonStyle}
-        variant={path.startsWith('/clients') ? 'contained' : 'text'}
-        onClick={() => navigate('#clients')}
-      >
-        Clients
-      </Button>
-      <Button
-        sx={menuButtonStyle}
-        variant={path.startsWith('/contact') ? 'contained' : 'text'}
-        onClick={() => navigate('#contact')}
-      >
-        Contact
-      </Button>
+      {links.map((link) => (
+        <Button
+          key={link.text}
+          sx={menuButtonStyle}
+          variant={path.startsWith(link.link) ? 'contained' : 'text'}
+          onClick={() => link.navigate(link.link)}
+        >
+          {link.text}
+        </Button>
+      ))}
     </Box>
   );
 }
